@@ -13,142 +13,170 @@
         body {
             background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
             background-size: cover;
-            overflow: hidden;
             background-color: #0d1117;
+            overflow-x: hidden;
         }
 
         /* Navigasyon Menüsü */
         nav {
             position: fixed;
-            top: 20px;
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(13, 17, 23, 0.8);
+            background: rgba(13, 17, 23, 0.85);
             backdrop-filter: blur(10px);
-            padding: 10px 30px;
+            padding: 8px 15px;
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 95%;
+            max-width: fit-content;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         nav a {
             color: #f0f6fc;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
         }
 
         nav a:hover { color: #58a6ff; }
 
-        /* Yatay Kaydırma Sistemi */
+        /* Kaydırma Sistemi - Masaüstünde Yatay, Mobilde Normal Akış */
         #wrapper {
             display: flex;
-            flex-direction: row;
-            overflow-x: auto;
-            height: 100vh;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
+            flex-direction: column; /* Varsayılan: Mobil için dikey */
+            height: auto;
+            width: 100%;
         }
 
-        /* Kaydırma çubuğunu gizlemek ama işlevi korumak için */
-        #wrapper::-webkit-scrollbar { display: none; }
-
         .panel {
-            min-width: 100vw;
-            height: 100vh;
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 50px;
-            scroll-snap-align: start;
-            flex-shrink: 0;
+            padding: 60px 20px 20px 20px; /* Üstten nav payı bırakıldı */
             background: rgba(13, 17, 23, 0.65); 
         }
 
         .content { 
-            max-width: 900px; 
-            padding: 40px; 
+            width: 100%;
+            max-width: 800px; 
+            padding: 30px; 
             text-align: center; 
-            background: rgba(22, 27, 34, 0.7); 
-            backdrop-filter: blur(8px); 
+            background: rgba(22, 27, 34, 0.8); 
+            backdrop-filter: blur(10px); 
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
         
         .profile-pic {
-            width: 180px;
-            height: 180px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #58a6ff;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
         }
 
-        h1 { font-size: 3.2rem; margin-bottom: 15px; color: #f0f6fc; }
-        h2.major { font-size: 2.2rem; margin-bottom: 20px; border-bottom: 3px solid #58a6ff; display: inline-block; color: #58a6ff; }
-        p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.6; color: #c9d1d9; }
+        h1 { font-size: 2rem; margin-bottom: 10px; color: #f0f6fc; }
+        h2.major { font-size: 1.6rem; margin-bottom: 15px; border-bottom: 3px solid #58a6ff; display: inline-block; color: #58a6ff; }
+        p { font-size: 1rem; margin-bottom: 15px; line-height: 1.6; color: #c9d1d9; }
         strong { color: #58a6ff; }
 
+        /* Yetenekler Grid */
         .grid-icons { 
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 15px; 
+            grid-template-columns: repeat(2, 1fr); /* Mobilde 2 sütun */
+            gap: 10px; 
             list-style: none; 
             margin: 20px 0;
         }
         .grid-icons li { 
             background: rgba(48, 54, 61, 0.4); 
-            padding: 15px; 
+            padding: 12px; 
             border-radius: 12px; 
             color: #f0f6fc; 
             border: 1px solid #30363d;
+            font-size: 0.9rem;
         }
-        .grid-icons i { font-size: 1.8rem; color: #58a6ff; margin-bottom: 8px; display: block; }
+        .grid-icons i { font-size: 1.5rem; color: #58a6ff; margin-bottom: 5px; display: block; }
         
+        /* Projeler */
         .project-card {
             background: rgba(13, 17, 23, 0.5);
             border: 1px solid #30363d;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             margin-top: 15px;
             transition: 0.3s;
-            max-width: 600px;
         }
-        .project-card:hover { border-color: #58a6ff; transform: translateY(-5px); }
-        .project-card i { font-size: 2.5rem; color: #58a6ff; margin-bottom: 15px; }
+        .project-card i { font-size: 2rem; color: #58a6ff; margin-bottom: 10px; }
 
-        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        /* Butonlar */
+        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
         .btn {
             display: inline-block;
-            padding: 10px 22px;
+            padding: 10px 20px;
             background: #238636;
             color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: 0.3s;
-            cursor: pointer;
         }
         .btn.secondary { background: transparent; border: 1px solid #30363d; color: #8b949e; }
-        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
-
         .btn-cert { 
             display: inline-block; 
-            margin-top: 8px; 
-            padding: 5px 10px; 
+            margin-top: 5px; 
+            padding: 4px 8px; 
             background: #21262d; 
             color: #58a6ff !important; 
             text-decoration: none; 
             border-radius: 6px; 
-            font-size: 0.75rem; 
+            font-size: 0.7rem; 
             border: 1px solid #30363d; 
+        }
+
+        /* --- BÜYÜK EKRANLAR (MASAÜSTÜ) İÇİN ÖZEL AYARLAR --- */
+        @media (min-width: 768px) {
+            body { overflow: hidden; } /* Masaüstünde taşmayı engelle */
+            
+            nav a { font-size: 0.9rem; margin: 0 15px; }
+
+            #wrapper {
+                flex-direction: row; /* Masaüstünde yatay diziliş */
+                overflow-x: auto;
+                height: 100vh;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            }
+            #wrapper::-webkit-scrollbar { display: none; }
+
+            .panel {
+                min-width: 100vw;
+                height: 100vh;
+                scroll-snap-align: start;
+                flex-shrink: 0;
+                padding: 50px;
+            }
+
+            .profile-pic { width: 180px; height: 180px; }
+            h1 { font-size: 3.2rem; }
+            h2.major { font-size: 2.2rem; }
+            p { font-size: 1.1rem; }
+            .grid-icons { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+            .grid-icons i { font-size: 1.8rem; }
+            .btn { font-size: 1rem; }
         }
     </style>
 </head>
@@ -179,12 +207,8 @@
         <section class="panel" id="about">
             <div class="content">
                 <h2 class="major">Hakkımda</h2>
-                <p>İstanbul 29 Mayıs Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. Yazılımı yalnızca kod yazmak değil, iş süreçlerini iyileştiren ve gerçek problemlere çözüm üreten bir araç olarak görüyorum.
-
-Akademik olarak kazandığım yönetim bakış açısını yazılım geliştirme becerilerimle birleştirerek kullanıcı ihtiyaçlarını merkeze alan, sürdürülebilir ve ölçeklenebilir çözümler üretmeyi hedefliyorum.
-
-Gerçek projelerde sorumluluk alabileceğim, öğrenme kültürü güçlü ve teknolojiyle değer üreten ekiplerin içinde yer almak istiyorum.</p>
-        
+                <p>İstanbul 29 Mayıs Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. Yazılımı yalnızca kod yazmak değil, iş süreçlerini iyileştiren ve gerçek problemlere çözüm üreten bir araç olarak görüyorum.</p>
+                <p>Akademik olarak kazandığım yönetim bakış açısını yazılım geliştirme becerilerimle birleştirerek kullanıcı ihtiyaçlarını merkeze alan çözümler üretmeyi hedefliyorum.</p>
                 <div class="btn-group">
                     <a href="#home" class="btn secondary">Geri</a>
                     <a href="#skills" class="btn">Yetenekler</a>
@@ -199,7 +223,7 @@ Gerçek projelerde sorumluluk alabileceğim, öğrenme kültürü güçlü ve te
                     <li><i class="fas fa-code"></i><strong>Java</strong><br><a href="belgeler/html.javabelge.pdf" target="_blank" class="btn-cert">Sertifika</a></li>
                     <li><i class="fab fa-html5"></i><strong>HTML5</strong><br><a href="belgeler/htmlsertifika.pdf" target="_blank" class="btn-cert">Sertifika</a></li>
                     <li><i class="fab fa-python"></i><strong>Python</strong><br>Orta Seviye</li>
-                    <li><i class="fas fa-laptop-code"></i><strong>Web Tasarım</strong><br>JavaScript & CSS</li>
+                    <li><i class="fas fa-laptop-code"></i><strong>Web Tasarım</strong><br>JS & CSS</li>
                     <li><i class="fas fa-file-excel"></i><strong>MS Office</strong><br>İleri Seviye</li>
                 </ul>
                 <div class="btn-group">
@@ -215,10 +239,10 @@ Gerçek projelerde sorumluluk alabileceğim, öğrenme kültürü güçlü ve te
                 <div class="project-card">
                     <i class="fas fa-utensils"></i>
                     <h3>Yemek Tarifi Sitesi</h3>
-                    <p>Dinamik tarif arama, favorilere ekleme, gece modu ve kullanıcı kayıt sistemi barındıran kapsamlı bir web uygulaması.</p>
-                    <p><strong>Teknolojiler:</strong> HTML5, CSS3, JavaScript, LocalStorage</p>
+                    <p>Dinamik tarif arama, favorilere ekleme ve kullanıcı kayıt sistemi barındıran web uygulaması.</p>
+                    <p><strong>Teknolojiler:</strong> HTML5, CSS3, JavaScript</p>
                     <div class="btn-group">
-                        <a href="https://github.com/giizemseen/yemektarif_sitesi/tree/main" target="_blank" class="btn" style="background: #21262d;">GitHub'da İncele <i class="fab fa-github"></i></a>
+                        <a href="https://github.com/giizemseen/yemektarif_sitesi/tree/main" target="_blank" class="btn" style="background: #21262d;">GitHub <i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="btn-group">
@@ -260,13 +284,20 @@ Gerçek projelerde sorumluluk alabileceğim, öğrenme kültürü güçlü ve te
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href && href.startsWith('#')) {
-                    e.preventDefault();
                     const target = document.querySelector(href);
                     if(target) {
-                        document.querySelector('#wrapper').scrollTo({
-                            left: target.offsetLeft,
-                            behavior: 'smooth'
-                        });
+                        e.preventDefault();
+                        // Mobilde normal dikey kaydırma, Masaüstünde yatay kaydırma
+                        if (window.innerWidth >= 768) {
+                            document.querySelector('#wrapper').scrollTo({
+                                left: target.offsetLeft,
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            target.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 }
             });
