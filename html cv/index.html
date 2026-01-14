@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="tr">
+<head>
+    <title>Fatma Gizem Şen | Portfolyo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+        /* GENEL TASARIM */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body {
+            background: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            background-color: #0d1117;
+        }
+
+        /* Navigasyon Menüsü */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a {
+            color: #f0f6fc;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #58a6ff; }
+
+        /* Yatay Kaydırma Sistemi */
+        #wrapper {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            height: 100vh;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Kaydırma çubuğunu gizlemek ama işlevi korumak için */
+        #wrapper::-webkit-scrollbar { display: none; }
+
+        .panel {
+            min-width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            background: rgba(13, 17, 23, 0.65); 
+        }
+
+        .content { 
+            max-width: 900px; 
+            padding: 40px; 
+            text-align: center; 
+            background: rgba(22, 27, 34, 0.7); 
+            backdrop-filter: blur(8px); 
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #58a6ff;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+        }
+
+        h1 { font-size: 3.2rem; margin-bottom: 15px; color: #f0f6fc; }
+        h2.major { font-size: 2.2rem; margin-bottom: 20px; border-bottom: 3px solid #58a6ff; display: inline-block; color: #58a6ff; }
+        p { font-size: 1.1rem; margin-bottom: 15px; line-height: 1.6; color: #c9d1d9; }
+        strong { color: #58a6ff; }
+
+        .grid-icons { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+            list-style: none; 
+            margin: 20px 0;
+        }
+        .grid-icons li { 
+            background: rgba(48, 54, 61, 0.4); 
+            padding: 15px; 
+            border-radius: 12px; 
+            color: #f0f6fc; 
+            border: 1px solid #30363d;
+        }
+        .grid-icons i { font-size: 1.8rem; color: #58a6ff; margin-bottom: 8px; display: block; }
+        
+        .project-card {
+            background: rgba(13, 17, 23, 0.5);
+            border: 1px solid #30363d;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 15px;
+            transition: 0.3s;
+            max-width: 600px;
+        }
+        .project-card:hover { border-color: #58a6ff; transform: translateY(-5px); }
+        .project-card i { font-size: 2.5rem; color: #58a6ff; margin-bottom: 15px; }
+
+        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+        .btn {
+            display: inline-block;
+            padding: 10px 22px;
+            background: #238636;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn.secondary { background: transparent; border: 1px solid #30363d; color: #8b949e; }
+        .btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        .btn-cert { 
+            display: inline-block; 
+            margin-top: 8px; 
+            padding: 5px 10px; 
+            background: #21262d; 
+            color: #58a6ff !important; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-size: 0.75rem; 
+            border: 1px solid #30363d; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Giriş</a>
+        <a href="#about">Hakkımda</a>
+        <a href="#skills">Yetenekler</a>
+        <a href="#projects">Projeler</a>
+        <a href="#experience">Deneyim</a>
+        <a href="#contact">İletişim</a>
+    </nav>
+
+    <div id="wrapper">
+
+        <section class="panel" id="home">
+            <div class="content">
+                <img src="img/img1.jpeg" alt="Fatma Gizem Şen" class="profile-pic">
+                <h1>FATMA GİZEM ŞEN</h1>
+                <p>İstanbul 29 Mayıs Üniversitesi <strong>Yönetim Bilişim Sistemleri</strong> 3. Sınıf Öğrencisi</p>
+                <div class="btn-group">
+                    <a href="#about" class="btn">Başlayalım <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="about">
+            <div class="content">
+                <h2 class="major">Hakkımda</h2>
+                <p>İstanbul 29 Mayıs Üniversitesi Yönetim Bilişim Sistemleri 3. sınıf öğrencisiyim. Yazılımı yalnızca kod yazmak değil, iş süreçlerini iyileştiren ve gerçek problemlere çözüm üreten bir araç olarak görüyorum.
+
+Akademik olarak kazandığım yönetim bakış açısını yazılım geliştirme becerilerimle birleştirerek kullanıcı ihtiyaçlarını merkeze alan, sürdürülebilir ve ölçeklenebilir çözümler üretmeyi hedefliyorum.
+
+Gerçek projelerde sorumluluk alabileceğim, öğrenme kültürü güçlü ve teknolojiyle değer üreten ekiplerin içinde yer almak istiyorum.</p>
+        
+                <div class="btn-group">
+                    <a href="#home" class="btn secondary">Geri</a>
+                    <a href="#skills" class="btn">Yetenekler</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="skills">
+            <div class="content">
+                <h2 class="major">Yetenekler</h2>
+                <ul class="grid-icons">
+                    <li><i class="fas fa-code"></i><strong>Java</strong><br><a href="belgeler/html.javabelge.pdf" target="_blank" class="btn-cert">Sertifika</a></li>
+                    <li><i class="fab fa-html5"></i><strong>HTML5</strong><br><a href="belgeler/htmlsertifika.pdf" target="_blank" class="btn-cert">Sertifika</a></li>
+                    <li><i class="fab fa-python"></i><strong>Python</strong><br>Orta Seviye</li>
+                    <li><i class="fas fa-laptop-code"></i><strong>Web Tasarım</strong><br>JavaScript & CSS</li>
+                    <li><i class="fas fa-file-excel"></i><strong>MS Office</strong><br>İleri Seviye</li>
+                </ul>
+                <div class="btn-group">
+                    <a href="#about" class="btn secondary">Geri</a>
+                    <a href="#projects" class="btn">Projeler</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="projects">
+            <div class="content">
+                <h2 class="major">Projelerim</h2>
+                <div class="project-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Yemek Tarifi Sitesi</h3>
+                    <p>Dinamik tarif arama, favorilere ekleme, gece modu ve kullanıcı kayıt sistemi barındıran kapsamlı bir web uygulaması.</p>
+                    <p><strong>Teknolojiler:</strong> HTML5, CSS3, JavaScript, LocalStorage</p>
+                    <div class="btn-group">
+                        <a href="https://github.com/giizemseen/yemektarif_sitesi/tree/main" target="_blank" class="btn" style="background: #21262d;">GitHub'da İncele <i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <a href="#skills" class="btn secondary">Geri</a>
+                    <a href="#experience" class="btn">Deneyim</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="experience">
+            <div class="content">
+                <h2 class="major">Eğitim & Deneyim</h2>
+                <p><strong>İstanbul 29 Mayıs Üniversitesi</strong><br>Yönetim Bilişim Sistemleri - 3. Sınıf.</p>
+                <br>
+                <p><strong>Sancaktepe Belediyesi</strong><br>Teknoloji Liderleri Projesi - Gönüllü Stajyer (3 Ay).</p>
+                <div class="btn-group">
+                    <a href="#projects" class="btn secondary">Geri</a>
+                    <a href="#contact" class="btn">İletişim</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="contact">
+            <div class="content">
+                <h2 class="major">İletişim</h2>
+                <p><i class="fas fa-envelope"></i> sengizem520@gmail.com</p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/gizem-%C5%9Fen-9b39b9278" target="_blank" style="color:#58a6ff; text-decoration:none;">LinkedIn Profilim</a></p>
+                <div class="btn-group">
+                    <a href="#experience" class="btn secondary">Geri</a>
+                    <a href="#home" class="btn">Başa Dön</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.querySelectorAll('nav a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if(target) {
+                        document.querySelector('#wrapper').scrollTo({
+                            left: target.offsetLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
